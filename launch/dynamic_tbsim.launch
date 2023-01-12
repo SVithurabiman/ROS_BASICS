@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+
+<include file="$(find my_robot_controller)/launch/bringup_tbsim.launch">
+
+
+<arg name="name" value="tbsim_1"/>
+<arg name="keyboard_name" value="tbsim_kb_1"/> 
+<arg name ="vel_topic" value= "tb1_vel" />
+
+<!-- making show sim in bringup_tbsim to true  -->
+<arg name="show_sim" value="true"/>
+
+<!-- can dynamically change value -->
+
+<param name="/my_tbsim/background_b" value="0"/>
+
+
+<!-- gets the node with name in bringup and assing name tbsim_1 -->
+<!-- can get multiple nod by with the same functionality by changinng 'value' -->
+</include>
+
+
+<!-- <include file="$(find my_robot_controller)/scripts/launch/bringup_tbsim.launch">
+<arg name="name" value="tbsim_2"/>
+<arg name="keyboard_name" value="tbsim_kb_2"/> 
+<arg name ="vel_topic" value= "tb2_vel"> -->
+<!-- gets the node with name in bringup and assing name tbsim_1 -->
+<!-- here topic is changed so each node can be published privately -->
+<!-- </include> -->
+
+
+</launch>

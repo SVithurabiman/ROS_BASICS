@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="name" default="turtle"/>
+    <arg name="keyboard_name" default="keyboard"/>
+    <arg name="show_sim" default="false"/>
+    <arg name="vel_topic" default="velocity"/>
+    <!-- Just adding parameter for client server -->
+    <rosparam command="load" file="$(find my_robot_controller)/config/param_sam.yaml"/>
+    <!-- grouping -->
+    <group if="$(arg show_sim)">
+        <node name="$(arg name)" pkg="turtlesim" type="turtlesim_node">
+        <remap from="/turtle/cmd_vel" to="$(arg vel_topic)"/> 
+        </node>
+    </group>
+
+        
+     <node name="$(arg keyboard_name)" pkg="turtlesim" type="turtle_teleop_key" output="screen"/>
+
+</launch>
