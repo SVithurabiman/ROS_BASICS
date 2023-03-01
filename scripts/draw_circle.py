@@ -7,7 +7,7 @@ if __name__== '__main__':
     #pub=rospy.Publisher("/turtle1/cmd_vel",Twist,queue_size=10) #topic_name #msgType  #buffer_size
     pub=rospy.Publisher("/cmd_vel",Twist,queue_size=10)
 
-    rate =rospy.Rate(2) #Hertz
+    rate =rospy.Rate(0.1) #Hertz
     while not rospy.is_shutdown():
         msg=Twist() #create object of class Twist
         msg.linear.x=0.5
